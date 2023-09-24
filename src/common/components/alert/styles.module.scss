@@ -1,0 +1,32 @@
+@use "../../styles/vars.scss" as *;
+
+.alert {
+  display: flex;
+  align-items: center;
+  border-width: 2px;
+  border-style: solid;
+  padding: 1rem 0.7rem;
+  border-radius: $border-radius;
+
+  &.success {
+    border-color: $success;
+    color: $success;
+    background-color: $success-bg;
+  }
+
+  &.error {
+    border-color: $error;
+    color: $error;
+    background-color: $error-bg;
+  }
+
+  svg {
+    margin-right: 0.7rem;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .message {
+    color: $text;
+  }
+}

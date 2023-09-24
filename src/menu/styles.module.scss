@@ -1,0 +1,25 @@
+.wrapper {
+  text-align: left;
+}
+
+.menuSection:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.itemList {
+  list-style: none;
+
+  li {
+    margin-bottom: 1rem;
+  }
+}
+
+.menuItem {
+  display: flex;
+  max-width: 340px;
+  font-weight: 500;
+
+  span {
+    flex: 1;
+  }
+}

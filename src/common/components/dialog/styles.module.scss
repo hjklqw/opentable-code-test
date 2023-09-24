@@ -1,0 +1,20 @@
+@use "../../styles/vars.scss" as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  border: 2px solid $primary;
+  background: $primary-light;
+  padding: 0.9rem 1.5rem;
+  border-radius: $border-radius;
+  position: relative;
+  margin: 0;
+
+  button {
+    position: absolute;
+    font-size: 1rem;
+    font-weight: 700;
+    right: 1rem;
+    top: 1rem;
+  }
+}

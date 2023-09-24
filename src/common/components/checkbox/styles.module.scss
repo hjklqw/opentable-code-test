@@ -1,0 +1,9 @@
+@use "../../styles/vars.scss" as *;
+
+.wrapper {
+  font-size: 26px;
+
+  &.checked {
+    color: $primary;
+  }
+}
