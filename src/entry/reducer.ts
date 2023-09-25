@@ -9,13 +9,21 @@ export type State = {
 
 export const initialState: State = { 0: [], 1: [] };
 
-type Action = {
-  type: AppAction;
-  payload: {
-    dinerIndex: number;
-    item: MenuItemWithCategory;
-  };
-};
+type Action =
+  | {
+      type: AppAction.ADD_SELECTION;
+      payload: {
+        dinerIndex: number;
+        item: MenuItemWithCategory;
+      };
+    }
+  | {
+      type: AppAction.REMOVE_SELECTION;
+      payload: {
+        dinerIndex: number;
+        itemId: number;
+      };
+    };
 
 export function reducer(state: State, action: Action) {
   const dinerIndex = action.payload.dinerIndex;
@@ -28,7 +36,7 @@ export function reducer(state: State, action: Action) {
     };
   } else if (action.type === AppAction.REMOVE_SELECTION) {
     const itemIndex = dinerSelections.findIndex(
-      (selection) => selection.id === action.payload.item.id
+      (selection) => selection.id === action.payload.itemId
     );
     return {
       ...state,

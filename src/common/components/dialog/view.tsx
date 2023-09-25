@@ -5,10 +5,11 @@ import styles from "./styles.module.scss";
 type Props = {
   message: string | JSX.Element;
   className?: string;
+  testId?: string;
 };
 
 /** A dialog that is open by default, and has a close button. */
-export const Dialog = ({ message, className }: Props) => {
+export const Dialog = ({ message, className, testId }: Props) => {
   const [isOpen, setOpen] = useState<boolean>(true);
 
   if (!isOpen) {
@@ -16,7 +17,10 @@ export const Dialog = ({ message, className }: Props) => {
   }
 
   return (
-    <dialog className={`${styles.wrapper} ${className || ""}`}>
+    <dialog
+      className={`${styles.wrapper} ${className || ""}`}
+      data-testid={testId}
+    >
       <button onClick={() => setOpen(false)} title="Close">
         ✕
       </button>

@@ -38,16 +38,15 @@ export const Entry = () => {
     category: string,
     isSelected: boolean
   ) {
-    const payload = { dinerIndex: currDinerIndex, item: { ...item, category } };
     if (isSelected) {
       dispatch({
         type: AppAction.REMOVE_SELECTION,
-        payload,
+        payload: { dinerIndex: currDinerIndex, itemId: item.id },
       });
     } else {
       dispatch({
         type: AppAction.ADD_SELECTION,
-        payload,
+        payload: { dinerIndex: currDinerIndex, item: { ...item, category } },
       });
     }
   }

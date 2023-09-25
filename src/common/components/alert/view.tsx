@@ -1,16 +1,18 @@
 import React from "react";
 
-import { AlertType } from "./models";
-import styles from "./styles.module.scss";
+import { ReactSvgComponent } from "../../models/svg";
 
+import styles from "./styles.module.scss";
 import { ReactComponent as SuccessIcon } from "./success-icon.svg";
 import { ReactComponent as ErrorIcon } from "./error-icon.svg";
-import { ReactSvgComponent } from "../../models/svg";
+
+import { AlertType } from "./models";
 
 type Props = {
   type: AlertType;
   message: string;
   className?: string;
+  testId?: string;
 };
 
 const iconMap: { [type in AlertType]: ReactSvgComponent } = {
@@ -18,10 +20,13 @@ const iconMap: { [type in AlertType]: ReactSvgComponent } = {
   [AlertType.ERROR]: ErrorIcon,
 };
 
-export const Alert = ({ type, message, className }: Props) => {
+export const Alert = ({ type, message, className, testId }: Props) => {
   const Icon = iconMap[type];
   return (
-    <aside className={`${styles.alert} ${styles[type]} ${className || ""}`}>
+    <aside
+      className={`${styles.alert} ${styles[type]} ${className || ""}`}
+      data-testid={testId}
+    >
       <Icon />
       <span className={styles.message}>{message}</span>
     </aside>
