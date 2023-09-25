@@ -18,7 +18,7 @@ describe("Entry - utils", () => {
       expect(errors).toEqual([
         "[Diner 1] Each diner must select from at least two courses. Please add 1 more item.",
         "[Diner 2] Each diner must select from at least two courses. Please add 2 more items.",
-        "[Diner 2] Please select at least one main item.",
+        "[Diner 2] Please select one main item.",
       ]);
     });
 
@@ -33,9 +33,7 @@ describe("Entry - utils", () => {
           { ...testItem, category: "b" },
         ],
       });
-      expect(errors).toEqual([
-        "[Diner 2] Please select at least one main item.",
-      ]);
+      expect(errors).toEqual(["[Diner 2] Please select one main item."]);
     });
 
     it("more than one item from the same course was selected", () => {

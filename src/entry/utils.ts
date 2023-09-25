@@ -21,7 +21,7 @@ export function checkErrors(state: State) {
       );
     }
     if (items.filter((x) => x.category === MAIN_CATEGORY_NAME).length === 0) {
-      errors.push(`${prefixTag} Please select at least one main item.`);
+      errors.push(`${prefixTag} Please select one main item.`);
     }
 
     const categories = items.map((item) => item.category);
